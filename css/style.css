@@ -1,0 +1,129 @@
+html {
+  font-size: 16px;
+  line-height: 1.4rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.table-wrapper-container {
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.table-wrapper > div {
+  border: 1px solid #ccc;
+  position: relative;
+  margin: 10px;
+  width: 33.3333333333%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+.table-wrapper > div .ribbon {
+  position: absolute;
+  transform: rotate(-40deg);
+  top: 9px;
+  left: -21px;
+  background: red;
+  padding: 2px 23px;
+  color: #fff;
+  font-size: 14px;
+  display: none;
+}
+.table-wrapper > div .ribbon.showRibbon {
+  display: block;
+}
+.table-wrapper > div .pkg-options {
+  display: none;
+  padding: 30px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: #939292;
+}
+.table-wrapper > div.show-option .pkg-options {
+  display: block;
+}
+
+.pricing-header {
+  text-align: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid #ccc;
+}
+.pricing-header button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 9;
+}
+.pricing-header h2 {
+  font-weight: 400;
+}
+.pricing-header p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+.pricing-header p span {
+  font-weight: 300;
+  font-size: 1rem;
+  display: block;
+  margin-top: 10px;
+}
+
+.pricing-features {
+  padding: 0px;
+}
+.pricing-features ul {
+  margin: 0;
+  padding: 0;
+}
+.pricing-features ul li {
+  list-style: none;
+  padding: 10px 30px;
+  text-align: center;
+}
+
+.pkg-options form > div {
+  padding: 10px 0;
+}
+.pkg-options form > div label {
+  display: block;
+  color: #fff;
+}
+.pkg-options form > div input {
+  width: 100%;
+  height: 40px;
+  padding: 5px 15px;
+  outline: none;
+  border: 1px solid #fdfdfd;
+}
+.pkg-options form > div button {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #22b78e;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #22b78e;
+  box-shadow: 0 5px 5px rgba(75, 75, 75, 0.2);
+}
+
+/*# sourceMappingURL=style.css.map */
