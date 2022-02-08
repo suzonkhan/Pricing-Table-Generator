@@ -9,6 +9,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
+  color: #fdfdfd;
   font-weight: 400;
   font-size: 1rem;
 }
@@ -16,8 +17,11 @@ body {
 .table-wrapper-container {
   display: table;
   margin: 0 auto;
+  padding: 10rem;
+  border-radius: .5rem;
   width: 100%;
   max-width: 1000px;
+  background-color: #E7F4F6;
 }
 
 .table-wrapper {
@@ -63,13 +67,18 @@ body {
 .pricing-header {
   text-align: center;
   padding: 10px 30px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 5px solid blue;
 }
 .pricing-header button {
   position: absolute;
   right: 10px;
   top: 10px;
-  z-index: 9;
+  z-index: 0;
+  padding: 5px;
+  background-color: inherit;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  color: #fdfdfd;
 }
 .pricing-header h2 {
   font-weight: 400;
@@ -127,3 +136,5 @@ body {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* new design */
