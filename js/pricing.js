@@ -1,31 +1,31 @@
 let pricingTable = [
     {
         pkgName: "Starter",
-        pkgPrice: 50000,
+        pkgPrice: 5000,
         showRibbon: false,
         features: [
             {
-                featureName: "Users 10",
+                featureName: "Be availlable",
                 featureStatus: true
             },
             {
-                featureName: "Users 11",
+                featureName: "Advance start",
                 featureStatus: true
             },
             {
-                featureName: "Users 12",
+                featureName: "Projects Upload",
                 featureStatus: true
             },
             {
-                featureName: "Users 14",
+                featureName: "Attachments",
                 featureStatus: true
             },
             {
-                featureName: "Users 15",
+                featureName: "Create your profile",
                 featureStatus: true
             },
             {
-                featureName: "Users 16",
+                featureName: "",
                 featureStatus: true
             }
         ]
@@ -56,7 +56,7 @@ let pricingTable = [
                 featureStatus: true
             },
             {
-                featureName: "Users 22",
+                featureName: "",
                 featureStatus: true
             }
         ]
@@ -87,7 +87,7 @@ let pricingTable = [
                 featureStatus: true
             },
             {
-                featureName: "Users 22",
+                featureName: "",
                 featureStatus: false
             }
         ]
@@ -99,7 +99,7 @@ jQuery(document).ready(function () {
         let htmlelement = "";
         for (pricing of pricingTable) {
             htmlelement = htmlelement + "<div class='pkg-box'>";
-            htmlelement = htmlelement + "<div class='pricing-header'> <button>Click</button>";
+            htmlelement = htmlelement + "<div class='pricing-header'> <button>Upgrade</button>";
             if(pricing.showRibbon ){
                 htmlelement = htmlelement + "<div class='ribbon showRibbon'>Popular</div>";
             } else {
