@@ -11,7 +11,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  background-color: #d5f7ff;
+  background-color: #ffffff;
 }
 
 .heading {
@@ -42,7 +42,7 @@ body {
   border-collapse: collapse;
   overflow: hidden;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 20px 20px 0 0;
 }
 .table-wrapper > div:nth-child(2) {
   box-shadow: 0px 0px 50px #bbbbbb;
@@ -53,6 +53,9 @@ body {
 .table-wrapper > div:nth-child(2) .pricing-header {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+.table-wrapper > div:last-child .pricing-features {
+  border-right: 1px solid #efefef;
 }
 .table-wrapper > div .ribbon {
   position: absolute;

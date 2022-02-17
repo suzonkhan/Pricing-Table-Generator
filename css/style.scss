@@ -11,7 +11,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  background-color: #d5f7ff;
+  background-color: #ffffff;
 }
 
 .heading {
@@ -46,18 +46,25 @@ body {
     border-collapse: collapse;
     overflow: hidden;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 20px 20px 0 0;
 
     &:nth-child(2) {
       box-shadow: 0px 0px 50px #bbbbbb;
       margin: 0px;
       position: relative;
       z-index: 9;
+
       .pricing-header {
         padding-top: 40px;
         padding-bottom: 40px;
         //background: linear-gradient(45deg, #ff6873, #ff896c);
         //background: linear-gradient(45deg, #5aa6d6, #6cced5);
+      }
+    }
+
+    &:last-child {
+      .pricing-features {
+        border-right: 1px solid #efefef;
       }
     }
 
