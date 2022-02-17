@@ -11,6 +11,17 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1rem;
+  background-color: #d5f7ff;
+}
+
+.heading {
+  color: black;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+  }
 }
 
 .table-wrapper-container {
@@ -23,14 +34,32 @@ body {
 .table-wrapper {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 
   & > div {
-    border: 1px solid #ccc;
+    //border-right: 1px solid #f5f5f5;
+
     position: relative;
-    margin: 10px;
-    width: calc(100% / 3);
+    //margin: 10px;
+    max-width: calc(100% / 3);
+    flex: 0 0 33.33%;
     border-collapse: collapse;
     overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+
+    &:nth-child(2) {
+      box-shadow: 0px 0px 50px #bbbbbb;
+      margin: 0px;
+      position: relative;
+      z-index: 9;
+      .pricing-header {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        //background: linear-gradient(45deg, #ff6873, #ff896c);
+        //background: linear-gradient(45deg, #5aa6d6, #6cced5);
+      }
+    }
 
     .ribbon {
       position: absolute;
@@ -69,14 +98,19 @@ body {
 
 .pricing-header {
   text-align: center;
-  padding: 10px 30px;
-  border-bottom: 1px solid #ccc;
+  padding: 10px 30px 20px;
+  //border-bottom: 1px solid #6fd7d2;
+  background: linear-gradient(360deg, #a3edd1, #35c9e1);
 
   button {
     position: absolute;
     right: 10px;
     top: 10px;
     z-index: 9;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
   }
 
   h2 {
@@ -91,14 +125,22 @@ body {
     span {
       font-weight: 300;
       font-size: 1rem;
-      display: block;
+      //display: block;
       margin-top: 10px;
+    }
+  }
+
+  &:hover {
+    button {
+      visibility: visible;
     }
   }
 }
 
 .pricing-features {
-  padding: 0px;
+  padding: 0;
+  //border-top: 1px solid #0db0a9;
+  border-left: 1px solid #efefef;
 
   ul {
     margin: 0;
@@ -106,8 +148,44 @@ body {
 
     li {
       list-style: none;
-      padding: 10px 30px;
-      text-align: center;
+      padding: 10px 20px 10px 40px;
+      cursor: pointer;
+      border-bottom: 1px solid #f5f5f5;
+      position: relative;
+
+      &:before {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+
+      &.del {
+        color: #b9b9b9;
+        //font-weight: lighter;
+
+        &:before {
+          content: "\f00d";
+
+        }
+      }
+
+      &.feature-16 {
+        min-height: 110px;
+      }
     }
   }
 }
@@ -145,3 +223,4 @@ body {
     }
   }
 }
+

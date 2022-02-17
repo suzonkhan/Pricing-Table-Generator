@@ -9,32 +9,50 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: #fdfdfd;
   font-weight: 400;
   font-size: 1rem;
+  background-color: #d5f7ff;
+}
+
+.heading {
+  color: black;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.heading h1 {
+  font-size: 2.5rem;
 }
 
 .table-wrapper-container {
   display: table;
   margin: 0 auto;
-  padding: 10rem;
-  border-radius: .5rem;
   width: 100%;
   max-width: 1000px;
-  background-color: #E7F4F6;
 }
 
 .table-wrapper {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 .table-wrapper > div {
-  border: 1px solid #ccc;
   position: relative;
-  margin: 10px;
-  width: 33.3333333333%;
+  max-width: 33.3333333333%;
+  flex: 0 0 33.33%;
   border-collapse: collapse;
   overflow: hidden;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.table-wrapper > div:nth-child(2) {
+  box-shadow: 0px 0px 50px #bbbbbb;
+  margin: 0px;
+  position: relative;
+  z-index: 9;
+}
+.table-wrapper > div:nth-child(2) .pricing-header {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 .table-wrapper > div .ribbon {
   position: absolute;
@@ -66,19 +84,18 @@ body {
 
 .pricing-header {
   text-align: center;
-  padding: 10px 30px;
-  border-bottom: 5px solid blue;
+  padding: 10px 30px 20px;
+  background: linear-gradient(360deg, #a3edd1, #35c9e1);
 }
 .pricing-header button {
   position: absolute;
   right: 10px;
   top: 10px;
-  z-index: 0;
-  padding: 5px;
-  background-color: inherit;
-  border: 1px solid whitesmoke;
-  border-radius: 5px;
-  color: #fdfdfd;
+  z-index: 9;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  visibility: hidden;
 }
 .pricing-header h2 {
   font-weight: 400;
@@ -91,12 +108,15 @@ body {
 .pricing-header p span {
   font-weight: 300;
   font-size: 1rem;
-  display: block;
   margin-top: 10px;
+}
+.pricing-header:hover button {
+  visibility: visible;
 }
 
 .pricing-features {
-  padding: 0px;
+  padding: 0;
+  border-left: 1px solid #efefef;
 }
 .pricing-features ul {
   margin: 0;
@@ -104,8 +124,37 @@ body {
 }
 .pricing-features ul li {
   list-style: none;
-  padding: 10px 30px;
-  text-align: center;
+  padding: 10px 20px 10px 40px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  position: relative;
+}
+.pricing-features ul li:before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pricing-features ul li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.pricing-features ul li.del {
+  color: #b9b9b9;
+}
+.pricing-features ul li.del:before {
+  content: "\f00d";
+}
+.pricing-features ul li.feature-16 {
+  min-height: 110px;
 }
 
 .pkg-options form > div {
@@ -136,5 +185,3 @@ body {
 }
 
 /*# sourceMappingURL=style.css.map */
-
-/* new design */

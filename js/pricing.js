@@ -232,18 +232,20 @@ jQuery(document).ready(function () {
         for (pricing of pricingTable) {
             htmlelement = htmlelement + "<div class='pkg-box'>";
             htmlelement = htmlelement + "<div class='pricing-header'> <button>Upgrade</button>";
-            if(pricing.showRibbon ){
+            if (pricing.showRibbon) {
                 htmlelement = htmlelement + "<div class='ribbon showRibbon'>Popular</div>";
             } else {
                 htmlelement = htmlelement + "<div class='ribbon'>Popular</div>";
             }
             htmlelement = htmlelement + "<h2>" + pricing.pkgName + "</h2><p>৳" + pricing.pkgPrice + "<span>/month</span></p></div>";
             htmlelement = htmlelement + "<div class='pricing-features'><ul>";
+            let i = 0;
             for (const feature of pricing.features) {
-                if(!feature.featureStatus){
-                    htmlelement = htmlelement + "<li class='del'><del> <span> " + feature.featureName + "</span></del></li>";
+                i++;
+                if (!feature.featureStatus) {
+                    htmlelement = htmlelement + "<li class='feature-" + i + " del'><del> <span> " + feature.featureName + "</span></del></li>";
                 } else {
-                    htmlelement = htmlelement + "<li> <span> " + feature.featureName + "</span></li>";
+                    htmlelement = htmlelement + "<li class='feature-" + i + "'> <span> " + feature.featureName + "</span></li>";
                 }
 
             }
@@ -258,9 +260,9 @@ jQuery(document).ready(function () {
     displayPrining();
 
     $(".pricing-features>ul>li").on("click", function () {
-        if($(this).hasClass("del")){
+        if ($(this).hasClass("del")) {
             let currentText = $(this).text();
-            $(this).html("<span>"+ currentText+" </span>");
+            $(this).html("<span>" + currentText + " </span>");
             $(this).removeClass("del");
         } else {
             $(this).addClass("del");
