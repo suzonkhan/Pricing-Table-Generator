@@ -237,52 +237,91 @@ jQuery(document).ready(function () {
             } else {
                 htmlelement = htmlelement + "<div class='ribbon'>Popular</div>";
             }
-            htmlelement = htmlelement + "<h2>" + pricing.pkgName + "</h2><p>৳" + pricing.pkgPrice + "<span>/month</span></p></div>";
+            htmlelement = htmlelement + `<h2> ${pricing.pkgName} </h2>
+                                        <p><span class="currency-sign">৳</span> <span class="pkg-price">${pricing.pkgPrice}</span> <span class="duration">/month</span></p></div>`;
             htmlelement = htmlelement + "<div class='pricing-features'><ul>";
             let i = 0;
             for (const feature of pricing.features) {
                 i++;
                 if (!feature.featureStatus) {
-                    htmlelement = htmlelement + "<li class='feature-" + i + " del'><del> <span> " + feature.featureName + "</span></del></li>";
+                    htmlelement = htmlelement + "<li class='feature-" + i + " del'> <i></i>  <span class='value'> " + feature.featureName + "</span> <span class='editor'></span></li>";
                 } else {
-                    htmlelement = htmlelement + "<li class='feature-" + i + "'> <span> " + feature.featureName + "</span></li>";
+                    htmlelement = htmlelement + "<li class='feature-" + i + "'> <i></i> <span class='value'> " + feature.featureName + "</span><span class='editor'></span></li>";
                 }
 
             }
             htmlelement = htmlelement + "</ul></div>";
             htmlelement = htmlelement + "</div>";
         }
-        ;
         $(".table-wrapper").append(htmlelement);
 
     }
 
     displayPrining();
 
-    $(".pricing-features>ul>li").on("click", function () {
-        if ($(this).hasClass("del")) {
-            let currentText = $(this).text();
-            $(this).html("<span>" + currentText + " </span>");
-            $(this).removeClass("del");
+    $(".pricing-features>ul>li>i").on("click", function (e) {
+        if ($(this).parents("li").hasClass("del")) {
+            $(this).parents("li").removeClass("del");
         } else {
-            $(this).addClass("del");
-            $(this).children("span").wrap("<del></del>");
+            $(this).parents("li").addClass("del");
         }
     });
     $(".table-wrapper .pricing-header button").on("click", function () {
         $(this).parents(".pkg-box").toggleClass("show-option");
+    })
+    $(".pricing-features>ul>li>span.value").on("click", function () {
+
+        let currentValue = $(this).text();
+        let editData = `
+                <input type="text" value="${currentValue}"><button class="button">save</button>
+            `;
+
+        $(this).siblings('span').show().html(editData);
+        console.log(currentValue);
+        $(this).parents("li").addClass("editing");
+        console.log("Block-01");
+        $(this).hide();
+    });
+    $(".pricing-features>ul>li>span.editor").on("click", function (e) {
+        // console.log(e)
+        console.log("Block-02");
+        let newValue = $(this).children("input").val();
+        console.log(typeof newValue, newValue.length)
+
+        if (e.target.nodeName == "BUTTON" && newValue !== "") {
+
+
+            $(this).hide();
+            $(this).siblings("span").show().html(newValue);
+            $(this).parents("li").removeClass("editing");
+        }
+
 
     })
 
     let pkgOptions = `<div class='pkg-options'>  
     <form class="updatePkg" action="">
-        <div>
+        <div class="update-pkg-name">
             <label for="pkg-name">Pkg name</label>
             <input id="pkg-name" type="text" name="pkgName">
         </div>
-        <div>
-            <label for="pkg-price">Pkg Price</label>
-            <input id="pkg-price" type="text" name="pkgPrice">
+        <div class="update-pkg-price">
+            <div>
+                <label for="pkg-currency">ccy.</label>
+                <input id="pkg-currency" type="text" value="৳" name="pkgCurrency">
+             </div>
+             <div>
+                <label for="pkg-price">Pkg Price</label>
+                <input id="pkg-price" type="number" name="pkgPrice">
+            </div>
+            <div>
+                <label for="pkg-duration">Duration</label>
+                <select id="pkg-duration" type="text"  name="pkgDuration">
+                    <option value="month">Month</option>
+                    <option value="year">Year </option>
+                </select>
+<!--                <input id="pkg-duration" type="text" value="month" name="pkgDuration">-->
+            </div>
         </div>
         <div>
         <button type="submit">Apply</button>
@@ -299,10 +338,15 @@ jQuery(document).ready(function () {
         var formData = $(this).serializeArray();
         event.preventDefault();
         for (const data of formData) {
+            console.log(data)
             if (data.name == "pkgName" && data.value !== "") {
                 $(this).parents(".pkg-box").find(".pricing-header h2").html(data.value)
+            } else if (data.name == "pkgCurrency" && data.value !== "") {
+                $(this).parents(".pkg-box").find(".pricing-header p span.currency-sign").html(data.value)
             } else if (data.name == "pkgPrice" && data.value !== "") {
-                $(this).parents(".pkg-box").find(".pricing-header p").html(data.value)
+                $(this).parents(".pkg-box").find(".pricing-header p span.pkg-price").html(data.value)
+            } else if (data.name == "pkgDuration" && data.value !== "") {
+                $(this).parents(".pkg-box").find(".pricing-header p span.duration").html("/" + data.value)
             }
         }
     });
