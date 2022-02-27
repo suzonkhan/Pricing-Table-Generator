@@ -22,6 +22,8 @@ body {
 }
 .heading h1 {
   font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .table-wrapper-container {
@@ -36,6 +38,7 @@ body {
   justify-content: center;
 }
 .table-wrapper > div {
+  border: 1px solid #e1e1e1;
   position: relative;
   padding: 20px;
   max-width: 33.3333333333%;
