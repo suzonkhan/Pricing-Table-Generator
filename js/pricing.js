@@ -235,7 +235,7 @@ jQuery(document).ready(function () {
             if (pricing.showRibbon) {
                 htmlelement = htmlelement + "<div class='ribbon showRibbon'>Popular</div>";
             } else {
-                htmlelement = htmlelement + "<div class='ribbon'>Popular</div>";
+                htmlelement = htmlelement + "<div class='ribbon'>Recommended</div>";
             }
             htmlelement = htmlelement + `<h2> ${pricing.pkgName} </h2>
                                         <p><span class="currency-sign">৳</span> <span class="pkg-price">${pricing.pkgPrice}</span> <span class="duration">/month</span></p></div>`;

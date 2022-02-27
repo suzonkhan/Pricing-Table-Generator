@@ -44,7 +44,7 @@ body {
     padding: 20px;
     max-width: calc(100% / 3);
     flex: 0 0 33.33%;
-    overflow: hidden;
+    //overflow: hidden;
     background-color: #fff;
     border-radius: 20px;
     margin: 10px;
@@ -58,18 +58,23 @@ body {
 
 
   .ribbon {
-    position: absolute;
-    transform: rotate(-40deg);
-    top: 9px;
-    left: -21px;
-    background: red;
-    padding: 2px 23px;
-    color: #fff;
+    background: #007bff;
+    padding: 10px 40px;
+    color: #ffffff;
     font-size: 14px;
     display: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 auto 20px;
+    position: absolute;
+    top: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 2px 2px #c7c7c7;
 
     &.showRibbon {
-      display: block;
+      display: table;
     }
   }
 
