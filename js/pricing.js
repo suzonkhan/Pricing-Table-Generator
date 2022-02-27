@@ -225,9 +225,11 @@ let pricingTable = [
         ]
     }
 ]
+
 jQuery(document).ready(function () {
 
-    function displayPrining(params) {
+
+    function displayPrining() {
         let htmlelement = "";
         for (pricing of pricingTable) {
             htmlelement = htmlelement + "<div class='pkg-box'>";
@@ -253,11 +255,15 @@ jQuery(document).ready(function () {
             htmlelement = htmlelement + "</ul></div>";
             htmlelement = htmlelement + "</div>";
         }
-        $(".table-wrapper").append(htmlelement);
+        $(".table-wrapper").html(htmlelement);
 
     }
 
-    displayPrining();
+    if (sessionStorage.getItem("login")) {
+        jQuery(".heading").slideDown();
+        displayPrining();
+    }
+
 
     $(".pricing-features>ul>li>i").on("click", function (e) {
         if ($(this).parents("li").hasClass("del")) {
@@ -277,26 +283,16 @@ jQuery(document).ready(function () {
             `;
 
         $(this).siblings('span').show().html(editData);
-        console.log(currentValue);
         $(this).parents("li").addClass("editing");
-        console.log("Block-01");
         $(this).hide();
     });
     $(".pricing-features>ul>li>span.editor").on("click", function (e) {
-        // console.log(e)
-        console.log("Block-02");
         let newValue = $(this).children("input").val();
-        console.log(typeof newValue, newValue.length)
-
         if (e.target.nodeName == "BUTTON" && newValue !== "") {
-
-
             $(this).hide();
             $(this).siblings("span").show().html(newValue);
             $(this).parents("li").removeClass("editing");
         }
-
-
     })
 
     let pkgOptions = `<div class='pkg-options'>  
@@ -338,7 +334,6 @@ jQuery(document).ready(function () {
         var formData = $(this).serializeArray();
         event.preventDefault();
         for (const data of formData) {
-            console.log(data)
             if (data.name == "pkgName" && data.value !== "") {
                 $(this).parents(".pkg-box").find(".pricing-header h2").html(data.value)
             } else if (data.name == "pkgCurrency" && data.value !== "") {
